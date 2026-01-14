@@ -3,64 +3,67 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Delta University | Exam Allocation</title>
+  <title>Delta University | Student Allocation</title>
 
   <style>
     :root{
-      /* Extracted from your logo (approx) */
-      --du-blue: #005FAA;
-      --du-blue-2: #0B3F8F;
-      --du-orange: #F15624;
+      --navy:#061a3a;
+      --navy2:#04122a;
 
-      --ink: #0b1220;
-      --muted: #6b7280;
+      --du-blue:#005FAA;
+      --du-orange:#F15624;
 
-      --card: rgba(255,255,255,.90);
-      --line: rgba(15,23,42,.10);
-      --shadow: 0 22px 60px rgba(0,0,0,.18);
+      --card:#ffffff;
+      --ink:#0b1220;
+      --muted:#6b7280;
+      --line:#e8ecf4;
 
-      --radius: 22px;
-      --ok: #107a3a;
-      --danger: #b00020;
+      --ok:#0a7a2f;
+      --danger:#b00020;
+
+      --radius:22px;
+      --shadow: 0 22px 60px rgba(0,0,0,.22);
     }
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
 
     body{
       margin:0;
       min-height:100vh;
       display:grid;
       place-items:center;
-      padding:26px;
+      padding:28px;
       font-family: system-ui, "Segoe UI", Arial, sans-serif;
       color:var(--ink);
 
-      /* Clean modern DU background */
       background:
-        radial-gradient(900px 600px at 18% 12%, rgba(255,255,255,.18), transparent 60%),
-        radial-gradient(900px 650px at 85% 85%, rgba(241,86,36,.18), transparent 55%),
-        linear-gradient(180deg, #0A2E68, #051733);
+        radial-gradient(900px 600px at 20% 10%, rgba(0,95,170,.22), transparent 60%),
+        radial-gradient(800px 600px at 85% 85%, rgba(241,86,36,.18), transparent 55%),
+        linear-gradient(180deg, var(--navy), var(--navy2));
     }
 
     .card{
-      width:min(560px, 96vw);
+      width:min(480px, 96vw); /* narrower card */
       background:var(--card);
-      border:1px solid rgba(255,255,255,.35);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       overflow:hidden;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      border:1px solid rgba(255,255,255,.10);
     }
 
-    /* Header */
     .top{
-      padding:16px 18px 12px;
-      border-bottom:1px solid rgba(15,23,42,.06);
-      background:
-        radial-gradient(700px 200px at 20% 0%, rgba(0,95,170,.12), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.70));
+      padding:16px 18px;
+      position:relative;
+      border-bottom:1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff, #fbfcff);
+    }
+    .top::before{
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0;
+      height:4px;
+      background: linear-gradient(90deg, var(--du-blue), var(--du-orange));
     }
 
     .logoRow{
@@ -70,178 +73,155 @@
       gap:12px;
     }
 
-    .logoWrap{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:0;
-    }
-
     .logoImg{
-      height:38px;
+      height:40px;
       width:auto;
       display:block;
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,.12));
     }
 
-    .badge{
-      flex:0 0 auto;
+    .chip{
       display:inline-flex;
       align-items:center;
       gap:8px;
       padding:7px 10px;
       border-radius:999px;
-      font-weight:900;
       font-size:12px;
-      background: rgba(0,95,170,.08);
-      color: var(--du-blue);
-      border:1px solid rgba(0,95,170,.18);
+      font-weight:900;
+      color:var(--du-blue);
+      background:#f0f7ff;
+      border:1px solid #d6ebff;
       user-select:none;
+      white-space:nowrap;
     }
-
     .dot{
       width:8px;height:8px;border-radius:50%;
-      background: var(--du-orange);
-      box-shadow: 0 0 0 4px rgba(241,86,36,.18);
+      background:var(--du-orange);
+      box-shadow:0 0 0 4px rgba(241,86,36,.18);
     }
 
-    .body{
-      padding:18px;
-    }
+    .body{ padding:18px; }
 
     .title{
-      margin:0 0 6px;
+      margin:0;
       font-size:18px;
       font-weight:950;
       letter-spacing:.2px;
     }
     .sub{
-      margin:0 0 14px;
+      margin:6px 0 14px;
       color:var(--muted);
       font-size:13px;
       line-height:1.5;
     }
 
-    /* Input */
-    .field{
-      position:relative;
-      margin-top:10px;
-    }
+    .field{ position:relative; }
 
     input{
       width:100%;
-      padding:14px 52px 14px 14px;
+      padding:14px 54px 14px 14px;
       border-radius:16px;
-      border:1px solid rgba(15,23,42,.12);
-      background: rgba(255,255,255,.78);
+      border:1px solid var(--line);
+      background:#fff;
       outline:none;
       font-size:20px;
       letter-spacing:.7px;
       transition: box-shadow .18s ease, border-color .18s ease;
     }
     input:focus{
-      border-color: rgba(0,95,170,.40);
+      border-color: rgba(0,95,170,.35);
       box-shadow: 0 0 0 6px rgba(0,95,170,.10);
     }
 
-    /* Status icon */
     .statusIcon{
       position:absolute;
       right:10px;
       top:50%;
       transform:translateY(-50%);
-      width:34px;height:34px;
-      border-radius:12px;
+      width:38px;height:38px;
+      border-radius:14px;
       display:grid;
       place-items:center;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--muted);
       font-weight:1000;
-      border:1px solid rgba(15,23,42,.10);
-      background: rgba(255,255,255,.80);
-      color: var(--muted);
       line-height:1;
       user-select:none;
     }
-
     .statusIcon.ok{
-      color: var(--ok);
-      border-color: rgba(16,122,58,.22);
-      background: rgba(16,122,58,.08);
+      color:var(--ok);
+      background: rgba(10,122,47,.06);
+      border-color: rgba(10,122,47,.18);
     }
-
     .statusIcon.err{
-      color: var(--danger);
-      border-color: rgba(176,0,32,.22);
-      background: rgba(176,0,32,.08);
-      font-size:22px; /* bigger X */
+      color:var(--danger);
+      background: rgba(176,0,32,.06);
+      border-color: rgba(176,0,32,.18);
+      font-size:24px; /* big X */
     }
 
-    /* Button */
-    .actions{
-      margin-top:12px;
-    }
+    .actions{ margin-top:12px; }
 
     button{
       width:100%;
       border:0;
       border-radius:16px;
       padding:13px 14px;
-      font-weight:1000;
       font-size:14px;
+      font-weight:1000;
       cursor:pointer;
       color:#fff;
-
-      background: linear-gradient(135deg, var(--du-blue), #0076d6);
+      background: linear-gradient(135deg, #005FAA, #0b74d6);
       box-shadow: 0 14px 26px rgba(0,95,170,.18);
-      transition: transform .06s ease, filter .18s ease, box-shadow .18s ease;
+      transition: transform .06s ease, filter .18s ease;
     }
     button:hover{ filter:brightness(1.03); }
     button:active{ transform: translateY(1px); }
     button:disabled{
-      opacity:.6;
+      opacity:.55;
       cursor:not-allowed;
       box-shadow:none;
       filter:saturate(.85);
     }
 
-    /* Toast */
     .toast{
       margin-top:12px;
       padding:10px 12px;
       border-radius:14px;
-      font-size:13px;
       border:1px solid transparent;
-      background: rgba(255,255,255,.60);
+      background:#f8fafc;
       color:var(--muted);
+      font-size:13px;
+      min-height:18px;
 
       opacity:0;
       transform: translateY(-4px);
       transition: opacity .18s ease, transform .18s ease;
-      min-height:18px;
     }
     .toast.show{ opacity:1; transform: translateY(0); }
-    .toast.ok{ background: rgba(16,122,58,.08); border-color: rgba(16,122,58,.20); color: var(--ok); }
-    .toast.err{ background: rgba(176,0,32,.08); border-color: rgba(176,0,32,.20); color: var(--danger); }
+    .toast.ok{ background: rgba(10,122,47,.06); border-color: rgba(10,122,47,.18); color: var(--ok); }
+    .toast.err{ background: rgba(176,0,32,.06); border-color: rgba(176,0,32,.18); color: var(--danger); }
 
     .footer{
       padding:12px 18px 16px;
-      border-top:1px solid rgba(15,23,42,.06);
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
       display:flex;
       justify-content:space-between;
       gap:10px;
       flex-wrap:wrap;
-      color:var(--muted);
-      font-size:12px;
-      background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.55));
+      background: linear-gradient(180deg, #ffffff, #fbfcff);
     }
     .footer b{ color:#111; }
 
-    /* Overlay */
+    /* overlay */
     .overlay{
       position:fixed;
       inset:0;
       display:grid;
       place-items:center;
-      background: rgba(3,10,25,.58);
+      background: rgba(0,0,0,.45);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       opacity:0;
@@ -249,29 +229,26 @@
       transition: opacity .18s ease;
       z-index:999;
     }
-    .overlay.show{
-      opacity:1;
-      pointer-events:auto;
-    }
+    .overlay.show{ opacity:1; pointer-events:auto; }
+
     .overlayCard{
       width:min(360px, 92vw);
-      background: rgba(255,255,255,.94);
-      border:1px solid rgba(255,255,255,.55);
-      border-radius:20px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
       box-shadow: var(--shadow);
       padding:18px 16px;
       text-align:center;
     }
     .spinner{
-      width:44px; height:44px;
+      width:44px;height:44px;
       border-radius:50%;
-      border:4px solid rgba(15,23,42,.10);
+      border:4px solid rgba(2,6,23,.10);
       border-top-color: var(--du-orange);
-      animation: spin .9s linear infinite;
+      animation: spin .85s linear infinite;
       margin:0 auto 10px;
     }
     @keyframes spin{ to{ transform: rotate(360deg); } }
-
     .overlayTitle{
       margin:0;
       font-weight:1000;
@@ -295,14 +272,9 @@
   <div class="card">
     <div class="top">
       <div class="logoRow">
-        <div class="logoWrap">
-          <!-- Put your uploaded logo as: logo.png in same folder -->
-          <img class="logoImg" src="logo.png" alt="Delta University logo">
-        </div>
-
-        <div class="badge" title="Portal Status">
-          <span class="dot"></span> Portal
-        </div>
+        <!-- Put your logo as: logo.png next to index.html -->
+        <img class="logoImg" src="logo.png" alt="Delta University logo">
+        <div class="chip"><span class="dot"></span> Student Allocation</div>
       </div>
     </div>
 
@@ -328,7 +300,6 @@
     </div>
   </div>
 
-  <!-- Professional opening overlay -->
   <div id="overlay" class="overlay" aria-hidden="true">
     <div class="overlayCard">
       <div class="spinner"></div>
@@ -338,7 +309,7 @@
   </div>
 
 <script>
-  // ✅ Direct SharePoint path (we only replace the last PDF filename)
+  // ✅ Direct SharePoint sample URL (we replace only the final PDF name)
   const DIRECT_SAMPLE_URL =
     "https://deltaust-my.sharepoint.com/personal/mahmoud_hussien_deltauniv_edu_eg/Documents/Students/Students/9211005.pdf?CT=1768350190604&OR=ItemsView";
 
@@ -365,11 +336,9 @@
 
   function showOverlay(show){
     overlay.classList.toggle("show", !!show);
-    overlay.setAttribute("aria-hidden", show ? "false" : "true");
   }
 
   function cleanAndGetId(){
-    // keep digits only + convert Arabic digits
     const raw = normalizeDigits(sidEl.value);
     const digitsOnly = raw.replace(/[^\d]/g, "");
     if(sidEl.value !== digitsOnly) sidEl.value = digitsOnly;
@@ -392,41 +361,38 @@
 
     if(id === "fault"){
       iconEl.className = "statusIcon err";
-      iconEl.textContent = "✕";   // large X
+      iconEl.textContent = "✕";
       openBtn.disabled = true;
-      setToast("❌ This ID is faulty. Please enter numbers only (4–12 digits).", "err");
+      setToast("❌ ID is invalid. Please enter 4–12 digits only.", "err");
       return;
     }
 
     iconEl.className = "statusIcon ok";
     iconEl.textContent = "✓";
     openBtn.disabled = false;
-    setToast("Ready. Press Enter or click Open.", "ok");
+    setToast("Ready. Click Open.", "ok");
   }
 
   function openPaper(){
     const id = cleanAndGetId();
     if(id === null || id === "fault"){
-      setToast("❌ This ID is faulty. Please enter a valid Student ID.", "err");
+      setToast("❌ Please enter a valid Student ID.", "err");
       sidEl.focus();
       return;
     }
 
     const url = buildUrl(id);
 
-    // Professional overlay (deliberate short delay)
     showOverlay(true);
     openBtn.disabled = true;
+    setToast("Opening…", "ok");
 
-    // Delay is okay for polish
+    // Professional delay for UI polish
     setTimeout(() => {
       window.open(url, "_blank");
-      // hide after opening (we can't detect SharePoint load reliably)
-      setTimeout(() => {
-        showOverlay(false);
-        openBtn.disabled = false;
-      }, 650);
-    }, 650);
+      showOverlay(false);
+      openBtn.disabled = false;
+    }, 600);
   }
 
   sidEl.addEventListener("input", updateUI);
