@@ -44,7 +44,7 @@
     }
 
     .card{
-      width:min(480px, 96vw); /* narrower card */
+      width:min(480px, 96vw);
       background:var(--card);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
@@ -157,7 +157,7 @@
       color:var(--danger);
       background: rgba(176,0,32,.06);
       border-color: rgba(176,0,32,.18);
-      font-size:24px; /* big X */
+      font-size:24px;
     }
 
     .actions{ margin-top:12px; }
@@ -272,7 +272,6 @@
   <div class="card">
     <div class="top">
       <div class="logoRow">
-        <!-- Put your logo as: logo.png next to index.html -->
         <img class="logoImg" src="logo.png" alt="Delta University logo">
         <div class="chip"><span class="dot"></span> Student Allocation</div>
       </div>
@@ -280,7 +279,7 @@
 
     <div class="body">
       <p class="title">Student ID</p>
-      <p class="sub">Enter your ID and open your allocation PDF.</p>
+      <p class="sub">Enter your ID then open your allocation PDF.</p>
 
       <div class="field">
         <input id="sid" inputmode="numeric" autocomplete="off" placeholder="e.g. 9211005" />
@@ -296,7 +295,7 @@
 
     <div class="footer">
       <span><b>Tip:</b> Press Enter</span>
-      <span>PDF name: <b>ID.pdf</b></span>
+      <span>PDF format: <b>ID.pdf</b></span>
     </div>
   </div>
 
@@ -304,23 +303,18 @@
     <div class="overlayCard">
       <div class="spinner"></div>
       <p class="overlayTitle">Opening…</p>
-      <p class="overlaySub">Redirecting to your paper</p>
+      <p class="overlaySub">Please wait</p>
     </div>
   </div>
 
 <script>
-  // ✅ Direct SharePoint sample URL (we replace only the final PDF name)
-  const DIRECT_SAMPLE_URL =
-    "https://deltaust-my.sharepoint.com/personal/mahmoud_hussien_deltauniv_edu_eg/Documents/Students/Students/9211005.pdf?CT=1768350190604&OR=ItemsView";
+  // PDFs are hosted in /pdf folder on GitHub Pages:
+  // /pdf/9211005.pdf
+  const PDF_DIR = "pdf"; // folder name
 
   function normalizeDigits(s){
     const ar = "٠١٢٣٤٥٦٧٨٩";
     return (s||"").replace(/[٠-٩]/g, d => String(ar.indexOf(d)));
-  }
-
-  function buildUrl(studentId){
-    const id = normalizeDigits(studentId).trim();
-    return DIRECT_SAMPLE_URL.replace(/[^\/\?]+\.pdf(\?.*)?$/i, `${id}.pdf$1`);
   }
 
   const sidEl = document.getElementById("sid");
@@ -373,7 +367,17 @@
     setToast("Ready. Click Open.", "ok");
   }
 
-  function openPaper(){
+  async function fileExists(url){
+    // GitHub Pages allows this (same-origin), so 404 is detectable
+    try{
+      const r = await fetch(url, { method:"HEAD", cache:"no-store" });
+      return r.ok;
+    }catch(_){
+      return false;
+    }
+  }
+
+  async function openPaper(){
     const id = cleanAndGetId();
     if(id === null || id === "fault"){
       setToast("❌ Please enter a valid Student ID.", "err");
@@ -381,18 +385,29 @@
       return;
     }
 
-    const url = buildUrl(id);
+    const url = `${PDF_DIR}/${id}.pdf`;
 
     showOverlay(true);
     openBtn.disabled = true;
-    setToast("Opening…", "ok");
+    setToast("Checking file…", "ok");
 
-    // Professional delay for UI polish
-    setTimeout(() => {
-      window.open(url, "_blank");
-      showOverlay(false);
-      openBtn.disabled = false;
-    }, 600);
+    // professional feel
+    await new Promise(r => setTimeout(r, 450));
+
+    const ok = await fileExists(url);
+
+    showOverlay(false);
+    openBtn.disabled = false;
+
+    if(!ok){
+      iconEl.className = "statusIcon err";
+      iconEl.textContent = "✕";
+      setToast("❌ File not found. It may not be uploaded yet (TBA).", "err");
+      return;
+    }
+
+    setToast("✅ Opening…", "ok");
+    setTimeout(() => window.open(url, "_blank"), 200);
   }
 
   sidEl.addEventListener("input", updateUI);
