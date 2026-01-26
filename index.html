@@ -694,11 +694,13 @@ function getTimeSourceLabel() {
       return;
     }
 
-    // Valid format → enable Open
-    openBtn.disabled = false;
+    // Valid format → wait for DB existence check
+    __idExists = false;
+    openBtn.disabled = true;
+    setIcon("idle");
     setToast("", "");
 
-    // Live existence check (red until found, green when found)
+    // Live existence check: red if not found, green if found
     debouncedCheckId(id);
 
     setIcon("ok");
@@ -708,6 +710,13 @@ function getTimeSourceLabel() {
 
   async function openPaper(){
     const id = cleanAndGetId();
+  if(id === \"fault\") return;
+  if(!__idExists){
+    setIcon(\"err\");
+    setToast((cfg && cfg.messages && cfg.messages.notFound) ? cfg.messages.notFound : \"❌ Student ID not found.\", \"err\");
+    hideResult();
+    return;
+  }
     if(id === null || id === "fault"){
       setToast("❌ Please enter a valid Student ID.", "err");
       sidEl.focus();
