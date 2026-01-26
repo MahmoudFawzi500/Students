@@ -694,12 +694,19 @@ function getTimeSourceLabel() {
       return;
     }
 
+    // Valid format → enable Open
+    openBtn.disabled = false;
+    setToast("", "");
+
+    // Live existence check (red until found, green when found)
+    debouncedCheckId(id);
+
     setIcon("ok");
     openBtn.disabled = false;
     setToast("Ready. Click Open.", "ok");
   }
 
-  async async function openPaper(){
+  async function openPaper(){
     const id = cleanAndGetId();
     if(id === null || id === "fault"){
       setToast("❌ Please enter a valid Student ID.", "err");
