@@ -419,6 +419,8 @@ async function checkIdExists(id){
   setIcon("idle");
   openBtn.disabled = true;
   __idExists = false;
+  // Clear status message while checking
+  setToast("", "");
 
   try{
     // Prefer HEAD; fallback to GET if needed
@@ -432,16 +434,21 @@ async function checkIdExists(id){
       __idExists = true;
       setIcon("ok");
       openBtn.disabled = false;
+      setToast("Ready. Click Open.", "ok");
     }else{
       __idExists = false;
       setIcon("err");
       openBtn.disabled = true;
+      const nfMsg = (typeof cfg !== "undefined" && cfg && cfg.messages && cfg.messages.notFound) ? cfg.messages.notFound : "❌ ID not found in database.";
+      setToast(nfMsg, "err");
     }
   }catch(e){
     if(seq !== __checkSeq) return;
     __idExists = false;
     setIcon("err");
     openBtn.disabled = true;
+    const nfMsg = (typeof cfg !== "undefined" && cfg && cfg.messages && cfg.messages.notFound) ? cfg.messages.notFound : "❌ ID not found in database.";
+    setToast(nfMsg, "err");
   }
 }
 // =========================
@@ -749,7 +756,7 @@ function getTimeSourceLabel() {
     debouncedCheckId(id);
 setIcon("ok");
     openBtn.disabled = false;
-    setToast("Ready. Click Open.", "ok");
+    setToast("", "");
   }
 
   async function openPaper(){
