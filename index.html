@@ -710,16 +710,19 @@ function getTimeSourceLabel() {
 
   async function openPaper(){
     const id = cleanAndGetId();
-  if(id === \"fault\") return;
-  if(!__idExists){
-    setIcon(\"err\");
-    setToast((cfg && cfg.messages && cfg.messages.notFound) ? cfg.messages.notFound : \"❌ Student ID not found.\", \"err\");
-    hideResult();
-    return;
-  }
+
     if(id === null || id === "fault"){
       setToast("❌ Please enter a valid Student ID.", "err");
       sidEl.focus();
+      return;
+    }
+
+
+    // Require ID to exist in DB (green) before allowing Open
+    if(!__idExists){
+      setIcon("err");
+      setToast("❌ Student ID not found.", "err");
+      hideResult();
       return;
     }
 
