@@ -1,1000 +1,664 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Delta University | Student Exam Info</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Student Exam Info</title>
 <style>
-    :root{
-      --navy:#061a3a;
-      --navy2:#04122a;
-
-      --du-blue:#005FAA;
-      --du-orange:#F15624;
-
-      --card:#ffffff;
-      --ink:#0b1220;
-      --muted:#6b7280;
-      --line:#e8ecf4;
-
-      --ok:#0a7a2f;
-      --danger:#b00020;
-
-      --radius:22px;
-      --shadow: 0 22px 60px rgba(0,0,0,.22);
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-
-    body{
-      margin:0;
-      min-height:100vh;
-      display:grid;
-      place-items:center;
-      padding:28px;
-      font-family: system-ui, "Segoe UI", Arial, sans-serif;
-      color:var(--ink);
-
-      background:
-        radial-gradient(900px 600px at 20% 10%, rgba(0,95,170,.22), transparent 60%),
-        radial-gradient(800px 600px at 85% 85%, rgba(241,86,36,.18), transparent 55%),
-        linear-gradient(180deg, var(--navy), var(--navy2));
-    }
-
-    .card{
-      width:min(480px, 96vw);
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-    }
-
-    .top{
-      padding:16px 18px;
-      position:relative;
-      border-bottom:1px solid var(--line);
-      background: linear-gradient(180deg, #ffffff, #fbfcff);
-    }
-    .top::before{
-      content:"";
-      position:absolute;
-      top:0; left:0; right:0;
-      height:4px;
-      background: linear-gradient(90deg, var(--du-blue), var(--du-orange));
-    }
-
-    .logoRow{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-
-    .logoImg{
-      height:40px;
-      width:auto;
-      display:block;
-    }
-
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:7px 10px;
-      border-radius:999px;
-      font-size:12px;
-      font-weight:900;
-      color:var(--du-blue);
-      background:#f0f7ff;
-      border:1px solid #d6ebff;
-      user-select:none;
-      white-space:nowrap;
-    }
-    .dot{
-      width:8px;height:8px;border-radius:50%;
-      background:var(--du-orange);
-      box-shadow:0 0 0 4px rgba(241,86,36,.18);
-    }
-
-    .body{ padding:18px; }
-
-    .title{
-      margin:0;
-      font-size:18px;
-      font-weight:950;
-      letter-spacing:.2px;
-    }
-    .sub{
-      margin:6px 0 14px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.5;
-    }
-
-    .field{ position:relative; }
-
-    input{
-      width:100%;
-      padding:14px 54px 14px 14px;
-      border-radius:16px;
-      border:1px solid var(--line);
-      background:#fff;
-      outline:none;
-      font-size:20px;
-      letter-spacing:.7px;
-      transition: box-shadow .18s ease, border-color .18s ease;
-    }
-    input:focus{
-      border-color: rgba(0,95,170,.35);
-      box-shadow: 0 0 0 6px rgba(0,95,170,.10);
-    }
-
-    .statusIcon{
-      position:absolute;
-      right:10px;
-      top:50%;
-      transform:translateY(-50%);
-      width:38px;height:38px;
-      border-radius:14px;
-      display:grid;
-      place-items:center;
-      border:1px solid var(--line);
-      background:#fff;
-      color:var(--muted);
-      font-weight:1000;
-      line-height:1;
-      user-select:none;
-    }
-    .statusIcon.ok{
-      color:var(--ok);
-      background: rgba(10,122,47,.06);
-      border-color: rgba(10,122,47,.18);
-    }
-    .statusIcon.err{
-      color:var(--danger);
-      background: rgba(176,0,32,.06);
-      border-color: rgba(176,0,32,.18);
-      font-size:24px;
-    }
-
-    .actions{ margin-top:12px; }
-
-    button{
-      width:100%;
-      border:0;
-      border-radius:16px;
-      padding:13px 14px;
-      font-size:14px;
-      font-weight:1000;
-      cursor:pointer;
-      color:#fff;
-      background: linear-gradient(135deg, #005FAA, #0b74d6);
-      box-shadow: 0 14px 26px rgba(0,95,170,.18);
-      transition: transform .06s ease, filter .18s ease;
-    }
-    button:hover{ filter:brightness(1.03); }
-    button:active{ transform: translateY(1px); }
-    button:disabled{
-      opacity:.55;
-      cursor:not-allowed;
-      box-shadow:none;
-      filter:saturate(.85);
-    }
-
-    .toast{
-      margin-top:12px;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid transparent;
-      background:#f8fafc;
-      color:var(--muted);
-      font-size:13px;
-      min-height:18px;
-
-      opacity:0;
-      transform: translateY(-4px);
-      transition: opacity .18s ease, transform .18s ease;
-    }
-    .toast.show{ opacity:1; transform: translateY(0); }
-    .toast.ok{ background: rgba(10,122,47,.06); border-color: rgba(10,122,47,.18); color: var(--ok); }
-    .toast.err{ background: rgba(176,0,32,.06); border-color: rgba(176,0,32,.18); color: var(--danger); }
-
-    .footer{
-      padding:12px 18px 16px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      font-size:12px;
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
-      background: linear-gradient(180deg, #ffffff, #fbfcff);
-    }
-    .footer b{ color:#111; }
-
-    /* overlay */
-    .overlay{
-      position:fixed;
-      inset:0;
-      display:grid;
-      place-items:center;
-      background: rgba(0,0,0,.45);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      opacity:0;
-      pointer-events:none;
-      transition: opacity .18s ease;
-      z-index:999;
-    }
-    .overlay.show{ opacity:1; pointer-events:auto; }
-
-    .overlayCard{
-      width:min(360px, 92vw);
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:18px;
-      box-shadow: var(--shadow);
-      padding:18px 16px;
-      text-align:center;
-    }
-    .spinner{
-      width:44px;height:44px;
-      border-radius:50%;
-      border:4px solid rgba(2,6,23,.10);
-      border-top-color: var(--du-orange);
-      animation: spin .85s linear infinite;
-      margin:0 auto 10px;
-    }
-    @keyframes spin{ to{ transform: rotate(360deg); } }
-    .overlayTitle{
-      margin:0;
-      font-weight:1000;
-      font-size:14px;
-      color:#111;
-      letter-spacing:.2px;
-    }
-    .overlaySub{
-      margin:6px 0 0;
-      font-size:12.5px;
-      color:var(--muted);
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      *{ transition:none !important; animation:none !important; }
-    }
-  
-
-    /* ===== Result section (minimal addition, matches existing style) ===== */
-    .result{ margin-top: 14px; }
-    .resultCard{
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.86));
-      border-radius: 18px;
-      padding: 14px;
-      box-shadow: 0 8px 26px rgba(17,24,39,.06);
-    }
-    .sectionHead{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      margin-bottom: 10px;
-    }
-    .sectionTitle{
-      font-weight: 800;
-      color: var(--ink);
-      letter-spacing: .2px;
-    }
-    .badge{
-      font-size: 12px;
-      font-weight: 800;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border:1px solid var(--line);
-      background: #fff;
-      color: var(--ink);
-      white-space: nowrap;
-    }
-    .bNeutral{ background: rgba(31,41,55,.04); }
-    .bOk{ background: rgba(16,185,129,.10); border-color: rgba(16,185,129,.25); }
-    .bEarly{ background: rgba(245,158,11,.10); border-color: rgba(245,158,11,.25); }
-    .bLate{ background: rgba(239,68,68,.10); border-color: rgba(239,68,68,.25); }
-
-    .kvGrid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-    @media(min-width: 520px){
-      .kvGrid{ grid-template-columns: 1fr 1fr; }
-    }
-    .kv{ border:1px solid var(--line); border-radius: 14px; padding: 10px 12px; background: rgba(255,255,255,.75); }
-    .kv .k{ font-size: 12px; font-weight: 800; color: var(--muted); margin-bottom: 4px; }
-    .kv .v{ font-size: 14px; font-weight: 800; color: var(--ink); }
-
-    .divider{ height:1px; background: var(--line); margin: 12px 0; }
-
-    .tableWrap{ overflow-x:auto; border:1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.85); }
-    .examTable{
-      width:100%;
-      border-collapse: collapse;
-      min-width: 620px;
-    }
-    .examTable th, .examTable td{
-      padding: 10px 10px;
-      border-bottom: 1px solid var(--line);
-      text-align: center;
-      vertical-align: middle;
-      font-weight: 800;
-      color: var(--ink);
-      white-space: nowrap;
-    }
-    .examTable th{
-      background: rgba(17,24,39,.04);
-      font-size: 12px;
-      color: #111827;
-    }
-    .examTable td{ font-size: 13px; }
-    .examTable tr:last-child td{ border-bottom: none; }
-
-    .mutedLine{ color: var(--muted); font-weight: 800; }
-
-    /* Toast warning state */
-    .toast.warn{ border-color: rgba(245,158,11,.35); color: #92400e; background: rgba(245,158,11,.10); }
-
-    .disclaimer {
-      margin-top: 12px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.35);
-      background: rgba(255,255,255,.55);
-      font-size: 12.5px;
-      line-height: 1.35;
-      color: rgba(0,0,0,.78);
-    }
-    .disclaimer b { font-weight: 800; }
-    
-
-    .actionsRow{ display:flex; justify-content:flex-end; margin-top:10px; }
-    .btnSecondary{
-      border: 1px solid rgba(0,0,0,.12);
-      background: rgba(255,255,255,.8);
-      padding: 10px 12px;
-      border-radius: 12px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .btnSecondary:disabled{ opacity:.55; cursor:not-allowed; }
-
-    .skeletonCard{
-      border: 1px solid rgba(255,255,255,.3);
-      background: rgba(255,255,255,.5);
-      border-radius: 18px;
-      padding: 14px;
-    }
-    .skeletonLine{
-      height: 12px;
-      border-radius: 10px;
-      margin: 10px 0;
-      position: relative;
-      overflow: hidden;
-      background: rgba(0,0,0,.06);
-    }
-    .skeletonLine::after{
-      content:"";
-      position:absolute; inset:0;
-      transform: translateX(-100%);
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.65), transparent);
-      animation: shimmer 1.2s infinite;
-    }
-    @keyframes shimmer { 100% { transform: translateX(100%); } }
-
+  :root{
+    --bg1:#062a4a;
+    --card:#ffffff;
+    --muted:#6b7280;
+    --primary:#0b6bd6;
+    --primary2:#0a5fc0;
+    --ok:#16a34a;
+    --err:#dc2626;
+    --warn:#f59e0b;
+    --shadow: 0 20px 60px rgba(0,0,0,.35);
+    --radius:22px;
+    --radius2:16px;
+    --font: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  }
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:var(--font);
+    background: radial-gradient(1200px 700px at 30% 10%, #0e3b67 0%, var(--bg1) 55%, #031b30 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:28px 16px;
+    color:#111827;
+  }
+  .wrap{
+    width:min(860px, 100%);
+    display:flex;
+    justify-content:center;
+  }
+  .card{
+    width:min(540px, 100%);
+    background:linear-gradient(#fff, #fff);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.25);
+  }
+  .topbar{
+    background:linear-gradient(180deg, #f8fafc 0%, #eef6ff 100%);
+    padding:14px 16px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    border-bottom:1px solid rgba(17,24,39,.06);
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:0;
+  }
+  .logo{
+    width:46px;height:46px;border-radius:12px;
+    background:linear-gradient(135deg, #e8f2ff, #ffffff);
+    border:1px solid rgba(2, 42, 74, .12);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;color:#0b4b86;
+  }
+  .brandText{
+    line-height:1.05;
+    min-width:0;
+  }
+  .brandText .u{font-size:14px;font-weight:800;color:#0b4b86;letter-spacing:.2px}
+  .brandText .f{font-size:11px;color:#0b4b86;opacity:.85}
+  .pillTop{
+    margin-left:auto;
+    background:#eaf4ff;
+    border:1px solid rgba(11,107,214,.22);
+    color:#0b4b86;
+    padding:8px 12px;
+    border-radius:999px;
+    font-weight:700;
+    display:flex; align-items:center; gap:8px;
+    white-space:nowrap;
+  }
+  .dot{width:10px;height:10px;border-radius:50%;background:#ef4444;box-shadow:0 0 0 3px rgba(239,68,68,.15)}
+  .body{
+    padding:18px 18px 16px;
+  }
+  h1{
+    margin:2px 0 6px;
+    font-size:34px;
+    letter-spacing:.2px;
+  }
+  .sub{color:var(--muted); margin:0 0 14px; font-size:14px}
+  .row{
+    display:flex;
+    gap:12px;
+    align-items:center;
+  }
+  .inputWrap{
+    flex:1;
+    position:relative;
+  }
+  input{
+    width:100%;
+    font-size:28px;
+    padding:16px 62px 16px 18px;
+    border-radius:18px;
+    border:1px solid rgba(2,42,74,.15);
+    outline:none;
+    background:#fff;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.6);
+  }
+  input:focus{border-color:rgba(11,107,214,.45); box-shadow:0 0 0 4px rgba(11,107,214,.12)}
+  .icon{
+    position:absolute;
+    right:10px; top:50%;
+    transform:translateY(-50%);
+    width:44px;height:44px;
+    border-radius:14px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:22px; font-weight:900;
+    background:#f3f4f6;
+    color:#6b7280;
+    border:1px solid rgba(17,24,39,.08);
+    user-select:none;
+  }
+  .icon.ok{background:rgba(22,163,74,.10); color:var(--ok); border-color:rgba(22,163,74,.25)}
+  .icon.err{background:rgba(220,38,38,.10); color:var(--err); border-color:rgba(220,38,38,.25)}
+  .icon.bad{background:rgba(245,158,11,.12); color:#b45309; border-color:rgba(245,158,11,.35)}
+  .btn{
+    width:100%;
+    margin-top:14px;
+    font-size:18px;
+    padding:16px 18px;
+    border-radius:18px;
+    border:none;
+    background:linear-gradient(180deg, var(--primary) 0%, var(--primary2) 100%);
+    color:#fff;
+    font-weight:800;
+    cursor:pointer;
+  }
+  .btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+    filter:saturate(.6);
+  }
+  .toast{
+    margin-top:12px;
+    padding:12px 14px;
+    border-radius:14px;
+    display:none;
+    border:1px solid rgba(17,24,39,.08);
+    background:#f8fafc;
+    color:#0f172a;
+    font-size:14px;
+  }
+  .toast.ok{background:rgba(22,163,74,.10); border-color:rgba(22,163,74,.22)}
+  .toast.err{background:rgba(220,38,38,.10); border-color:rgba(220,38,38,.22)}
+  .toast.warn{background:rgba(245,158,11,.12); border-color:rgba(245,158,11,.25)}
+  .disclaimer{
+    margin-top:14px;
+    color:#374151;
+    font-size:14px;
+    line-height:1.6;
+    padding:14px 14px;
+    border-radius:16px;
+    background:linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    border:1px solid rgba(17,24,39,.06);
+  }
+  .foot{
+    margin-top:14px;
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:#6b7280;
+  }
+  .result{
+    margin-top:14px;
+  }
+  .paper{
+    border-radius:18px;
+    border:1px solid rgba(17,24,39,.08);
+    background:linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    overflow:hidden;
+  }
+  .paperHeader{
+    padding:14px 14px;
+    display:flex;align-items:center;gap:10px;
+    background:linear-gradient(180deg, #f8fafc 0%, #eef6ff 100%);
+    border-bottom:1px solid rgba(17,24,39,.06);
+  }
+  .paperTitle{font-weight:900; color:#0b4b86}
+  .pill{
+    margin-left:auto;
+    padding:8px 10px;
+    border-radius:999px;
+    font-weight:800;
+    background:#eaf4ff;
+    border:1px solid rgba(11,107,214,.20);
+    color:#0b4b86;
+  }
+  .paperBody{padding:14px 14px 16px}
+  .field{padding:10px 12px; border-radius:14px; border:1px solid rgba(17,24,39,.07); background:#fff; margin-bottom:10px}
+  .label{font-size:12px; color:#6b7280; font-weight:700; letter-spacing:.2px; text-transform:none}
+  .value{font-size:18px; font-weight:800; margin-top:4px}
+  .rtl{direction:rtl; text-align:right}
+  .divider{height:1px; background:rgba(17,24,39,.08); margin:14px 0}
+  .nextExamTitle{font-size:18px;font-weight:900;margin-bottom:10px}
+  .okBox{
+    padding:12px 12px;
+    border-radius:14px;
+    background:rgba(22,163,74,.10);
+    border:1px solid rgba(22,163,74,.22);
+    font-weight:800;
+    color:#14532d;
+  }
+  .countdownBox{
+    padding:12px 12px;
+    border-radius:14px;
+    border:1px solid rgba(17,24,39,.08);
+    font-weight:800;
+    margin-bottom:10px;
+    background:#f8fafc;
+  }
+  .countdownBox.warn{background:rgba(245,158,11,.12); border-color:rgba(245,158,11,.28); color:#92400e}
+  .countdownBox.ok{background:rgba(22,163,74,.10); border-color:rgba(22,163,74,.22); color:#14532d}
+  .examCard{
+    border-radius:16px;
+    border:1px solid rgba(17,24,39,.08);
+    background:#fff;
+    overflow:hidden;
+  }
+  .examHead{
+    padding:12px 12px;
+    display:flex; gap:10px; align-items:baseline;
+    background:linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    border-bottom:1px solid rgba(17,24,39,.06);
+  }
+  .examCourse{font-weight:900; font-size:16px; flex:1}
+  .examCode{font-weight:900; font-size:12px; color:#0b4b86; background:#eaf4ff; border:1px solid rgba(11,107,214,.2); padding:6px 8px; border-radius:999px}
+  .examTable{width:100%; border-collapse:collapse}
+  .examTable th, .examTable td{
+    padding:10px 12px;
+    border-bottom:1px solid rgba(17,24,39,.06);
+    text-align:left;
+    font-size:14px;
+  }
+  .examTable th{width:32%; color:#6b7280; font-weight:800}
+  .actionsRow{padding:12px 12px}
+  .btnSecondary{
+    width:100%;
+    padding:12px 12px;
+    border-radius:14px;
+    border:1px solid rgba(17,24,39,.10);
+    background:linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    font-weight:900;
+    cursor:pointer;
+  }
+  .skeletonCard{
+    border-radius:18px;
+    border:1px solid rgba(17,24,39,.08);
+    background:#fff;
+    padding:14px;
+  }
+  .skeletonLine{
+    height:14px;
+    border-radius:999px;
+    background:linear-gradient(90deg, #f3f4f6 0%, #e5e7eb 45%, #f3f4f6 100%);
+    background-size:200% 100%;
+    animation:shimmer 1.2s infinite linear;
+    margin:10px 0;
+  }
+  @keyframes shimmer{0%{background-position:0% 0%}100%{background-position:200% 0%}}
+  @media (max-width:420px){
+    h1{font-size:30px}
+    input{font-size:24px}
+  }
 </style>
 </head>
 <body>
-<div class="card">
-<div class="top">
-<div class="logoRow">
-<img alt="Delta University logo" class="logoImg" src="logo.png" onerror="this.style.display='none'"/>
-<div class="chip"><span class="dot"></span> Student Exam Info</div>
-</div>
-</div>
-<div class="body">
-<p class="title">Student ID</p>
-<p class="sub">Enter your ID to view your next exam details.</p>
-<div class="field">
-<input autocomplete="off" id="sid" inputmode="numeric" placeholder="e.g. 9211005"/>
-<div aria-hidden="true" class="statusIcon" id="icon">—</div>
-</div>
-<div class="actions">
-<button disabled="" id="openBtn">Open</button>
-</div>
-<div aria-live="polite" class="toast" id="toast" role="status"></div><div class="result" hidden="" id="result"></div>
-</div>
+  <div class="wrap">
+    <div class="card">
+      <div class="topbar">
+        <div class="brand">
+          <div class="logo">DU</div>
+          <div class="brandText">
+            <div class="u">DELTA UNIVERSITY</div>
+            <div class="f">Faculty of Applied Health Sciences Technology</div>
+          </div>
+        </div>
+        <div class="pillTop"><span class="dot"></span> Student Exam Info</div>
+      </div>
 
-<div class="disclaimer" dir="rtl"><b>تنبيه:</b> هذه الصفحة لخدمة الطلاب فقط. الطالب مُلزم بالمواعيد وأماكن الامتحان المُعلنة رسميًا من مكتب وكيل وعميد الكلية، وأي اختلاف يُعتد فيه بالإعلان الرسمي.</div>
-<div class="footer">
-<span><b>Tip:</b> Press Enter</span>
-<span>Shows: <b>Next exam only</b> · <span id="timeSrc"></span></span>
-</div>
-</div>
-<div aria-hidden="true" class="overlay" id="overlay">
-<div class="overlayCard">
-<div class="spinner"></div>
-<p class="overlayTitle">Loading…</p>
-<p class="overlaySub">Please wait</p>
-</div>
-</div>
-<script>console.log("BUILD FINAL15");
+      <div class="body">
+        <h1>Student ID</h1>
+        <p class="sub">Enter your ID to view your next exam details.</p>
+
+        <div class="row">
+          <div class="inputWrap">
+            <input id="studentId" inputmode="numeric" autocomplete="off" placeholder="e.g. 9211005" />
+            <div id="idIcon" class="icon" aria-label="idle">—</div>
+          </div>
+        </div>
+
+        <button id="openBtn" class="btn" disabled>Open</button>
+
+        <div id="toast" class="toast"></div>
+
+        <div class="disclaimer">
+          <b>تنبيه:</b> هذه الصفحة لخدمة الطلاب فقط. الطالب مُلزم بالمواعيد وأماكن الامتحان المُعلنة رسميًا من مكتب وكيل وعميد الكلية، وأي اختلاف يُعتد به بالإعلان الرسمي.
+        </div>
+
+        <div class="foot">
+          <div id="hintLine">Tip: Press Enter</div>
+          <div>Shows: <b>Next exam only</b></div>
+        </div>
+
+        <div id="result" class="result" hidden></div>
+      </div>
+    </div>
+  </div>
+
+<script>
+(() => {
+  "use strict";
 
   const DB_DIR = "Json database";
+  const DEFAULT_SHOW_WINDOW_HOURS = 16;
+  const CACHE_BUST = Date.now();
 
+  const idInput   = document.getElementById("studentId");
+  const openBtn   = document.getElementById("openBtn");
+  const iconBox   = document.getElementById("idIcon");
+  const toastEl   = document.getElementById("toast");
+  const resultEl  = document.getElementById("result");
 
-
-
-
-  // Cache-busting to avoid stale GitHub Pages caching
-  const __CACHE_BUST = Date.now();
-  function withBust(url){
-    const u = url + (url.includes('?') ? '&' : '?') + 'v=' + __CACHE_BUST;
-    return encodeURI(u);
-  }
-// =========================
-// Live ID existence check (Json database/<id>.json)
-// =========================
-let __checkTimer = null;
-let __checkSeq = 0;
-let __idExists = false;
-// Cache existence checks to avoid repeated network calls
-const __existsCache = new Map();
-
-function debouncedCheckId(id){
-  if(__checkTimer) clearTimeout(__checkTimer);
-  __checkTimer = setTimeout(()=>{ checkIdExists(id); }, (window.matchMedia && window.matchMedia('(max-width: 520px)').matches) ? 400 : 250);
-}
-
-async function checkIdExists(id){
-  // IMPORTANT: Use GET (not HEAD). Some CDNs/GitHub Pages may not support HEAD properly.
-  const url = withBust(`${DB_DIR}/${id}.json`);
-  try{
-    const resp = await fetch(url, { method: "GET", cache: "no-store", headers: { "Accept": "application/json" } });
-    if(resp.status === 200) return true;
-    if(resp.status === 404) return false;
-    return "__DB_ERROR__";
-  }catch(_){
-    return "__DB_ERROR__";
-  }
-}
-// =========================
-// Time source (server Date header when possible)
-// =========================
-let __timeSource = "device";
-
-/**
- * Returns a Date object representing "now".
- * - On https/http (GitHub Pages), it prefers the server time from the HTTP Date header.
- * - On file:// offline mode, falls back to device time (no reliable headers).
- */
-async function getNowSmart() {
-  const proto = location.protocol;
-  if (proto === "http:" || proto === "https:") {
-    // Prefer the hosting server time (harder to spoof than device clock)
-    const candidates = [
-      `${DB_DIR}/config.json`,
-      location.href
-    ];
-    for (const url of candidates) {
-      try {
-        const res = await fetch(url, { method: "GET", cache: "no-store" });
-        const dh = res.headers.get("date");
-        if (dh) {
-          const dt = new Date(dh);
-          if (!isNaN(dt.getTime())) {
-            __timeSource = "server";
-            return dt;
-          }
-        }
-      } catch (e) {
-        // ignore and try next candidate
-      }
-    }
-  }
-  __timeSource = "device";
-  return new Date();
-}
-
-
-
-function updateTimeSourceUI() {
-  const el = document.getElementById("timeSrc");
-  if (el) el.textContent = `Time: ${getTimeSourceLabel()}`;
-}
-
-function getTimeSourceLabel() {
-  return __timeSource === "server" ? "Server time" : "Device time";
-}
- // folder next to index.html
   let CONFIG = null;
+  const existsCache = new Map();
+  let checkTimer = null;
+  let checkSeq = 0;
+  let countdownTimer = null;
 
-  // If you open this file directly (file://), browsers block fetch() from local JSON.
-  // To test locally WITHOUT a server, we ask once to pick the 'Json database' folder.
-  const LOCAL_FILES = new Map();
-  let LOCAL_READY = false;
+  const safe = (v) => (v === null || v === undefined) ? "" : String(v);
+  const encPath = (p) => encodeURI(p).replace(/#/g, "%23");
+  const withBust = (u) => encPath(u) + (u.includes("?") ? "&" : "?") + "v=" + CACHE_BUST;
 
-  async function ensureLocalDB(){
-    if(LOCAL_READY) return;
-
-    // 1) Modern browsers (Chromium): directory picker
-    if(window.showDirectoryPicker){
-      try{
-        toast("Offline mode: select the 'Json database' folder once.", "warn", true);
-        const dir = await window.showDirectoryPicker({ mode: "read" });
-        for await (const [name, handle] of dir.entries()){
-          if(handle.kind === "file"){
-            const file = await handle.getFile();
-            LOCAL_FILES.set(name, file);
-          }
-        }
-        LOCAL_READY = LOCAL_FILES.size > 0;
-        if(LOCAL_READY) return;
-      }catch(e){
-        // user cancelled -> fall through to file input
-      }
-    }
-
-    // 2) Fallback: <input webkitdirectory> (works in Chrome/Edge)
-    await new Promise((resolve) => {
-      toast("Offline mode: choose the 'Json database' folder.", "warn", true);
-      const input = document.createElement("input");
-      input.type = "file";
-      input.multiple = true;
-      input.setAttribute("webkitdirectory", "");
-      input.style.display = "none";
-      document.body.appendChild(input);
-
-      input.addEventListener("change", () => {
-        const files = Array.from(input.files || []);
-        for(const f of files){
-          const rel = f.webkitRelativePath || f.name;
-          const parts = rel.split("/");
-          const name = parts[parts.length - 1];
-          LOCAL_FILES.set(name, f);
-        }
-        LOCAL_READY = LOCAL_FILES.size > 0;
-        input.remove();
-        resolve();
-      }, { once: true });
-
-      input.click();
-    });
-
-    if(!LOCAL_READY){
-      throw new Error("LOCAL_DB_NOT_SELECTED");
-    }
+  function setIcon(state){
+    iconBox.classList.remove("ok","err","bad");
+    if(state === "ok") iconBox.classList.add("ok");
+    if(state === "err") iconBox.classList.add("err");
+    if(state === "bad") iconBox.classList.add("bad");
+    iconBox.textContent = (state === "ok") ? "✓" : (state === "err") ? "✕" : (state === "bad") ? "!" : "—";
+    iconBox.setAttribute("aria-label", state);
   }
 
+  function setToast(msg, kind){
+    toastEl.classList.remove("ok","err","warn");
+    if(kind) toastEl.classList.add(kind);
+    toastEl.textContent = msg || "";
+    toastEl.style.display = msg ? "block" : "none";
+  }
 
   function normalizeDigits(s){
     const ar = "٠١٢٣٤٥٦٧٨٩";
-    return (s||"").replace(/[٠-٩]/g, d => String(ar.indexOf(d)));
+    return safe(s).replace(/[٠-٩]/g, d => String(ar.indexOf(d)));
   }
 
-  const sidEl = document.getElementById("sid");
-  const iconEl = document.getElementById("icon");
-  const toastEl = document.getElementById("toast");
-  const openBtn = document.getElementById("openBtn");
-  const overlay = document.getElementById("overlay");
-  const resultEl = document.getElementById("result");
-
-  function setToast(text, type=""){
-    toastEl.textContent = text || "";
-    toastEl.className = "toast " + (text ? "show " : "") + type;
+  function stopCountdown(){
+    if(countdownTimer){ clearInterval(countdownTimer); countdownTimer = null; }
   }
 
-  function showOverlay(show){
-    overlay.classList.toggle("show", !!show);
-  }
-
-  function cleanAndGetId(){
-    const raw = normalizeDigits(sidEl.value);
-    const digitsOnly = raw.replace(/[^\d]/g, "");
-    if(sidEl.value !== digitsOnly) sidEl.value = digitsOnly;
-
-    if(!digitsOnly) return null;
-    if(!/^\d{4,12}$/.test(digitsOnly)) return "fault";
-    return digitsOnly;
-  }
-
-  function formatInTZ(iso, tz, kind){
-    const d = new Date(iso);
-    if(Number.isNaN(d.getTime())) return "";
-    if(kind === "datePretty"){
-      return d.toLocaleDateString(undefined, { timeZone: tz, weekday:"short", year:"numeric", month:"short", day:"2-digit" });
-    }
-    if(kind === "timePretty"){
-      return d.toLocaleTimeString(undefined, { timeZone: tz, hour:"numeric", minute:"2-digit", hour12:true });
-    }
-    if(kind === "date"){
-      return d.toLocaleDateString("en-GB", { timeZone: tz, year:"numeric", month:"2-digit", day:"2-digit" });
-    }
-    return d.toLocaleTimeString("en-GB", { timeZone: tz, hour:"2-digit", minute:"2-digit" });
-  }
-
-  function setIcon(state){
-    if(state === "ok"){
-      iconEl.className = "statusIcon ok";
-      iconEl.textContent = "✓";
-    }else if(state === "err"){
-      iconEl.className = "statusIcon err";
-      iconEl.textContent = "✕";
-    }else{
-      iconEl.className = "statusIcon";
-      iconEl.textContent = "—";
-    }
-  }
-
-  function hideResult(){
-    resultEl.hidden = true;
-    resultEl.innerHTML = "";
-  }
-
-  
-async function copyToClipboard(text){
-  try{
-    await navigator.clipboard.writeText(text);
-    setToast("Copied.", "ok");
-    return true;
-  }catch(e){
-    try{
-      const ta = document.createElement("textarea");
-      ta.value = text;
-      ta.setAttribute("readonly", "");
-      ta.style.position = "fixed";
-      ta.style.left = "-9999px";
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand("copy");
-      document.body.removeChild(ta);
-      setToast("Copied.", "ok");
-      return true;
-    }catch(e2){
-      setToast("Copy failed.", "err");
-      return false;
-    }
-  }
-}
-
-function renderResult(student, exam, mode, msg){
-    const badgeClass = mode === "ok" ? "bOk" : (mode === "late" ? "bLate" : (mode === "none" ? "bNeutral" : "bEarly"));
-    const badgeText  = mode === "ok" ? "AVAILABLE" : (mode === "late" ? "CLOSED" : (mode === "none" ? "INFO" : "TOO EARLY"));
-
-    const safe = (v)=> (v===null || v===undefined || v==="") ? "—" : String(v);
-
-    const tz = (CONFIG && CONFIG.timezone) ? CONFIG.timezone : "Africa/Cairo";
-
-    let examHTML = "";
-    if(exam === null){
-      examHTML = `
-        <div class="sectionHead">
-          <div class="sectionTitle">Next Exam</div>
-          <div class="badge ${badgeClass}">${badgeText}</div>
-        </div>
-        <div class="mutedLine">${msg || "No upcoming exams."}</div>
-      `;
-    }else{
-      const date = formatInTZ(exam.examStartISO, tz, "datePretty");
-      const t1 = formatInTZ(exam.examStartISO, tz, "timePretty");
-      const t2 = formatInTZ(exam.examEndISO, tz, "timePretty");
-      const time = (t1 && t2) ? `${t1} – ${t2}` : (t1 || "—");
-
-      const showSeat = (mode === "ok");
-      const showLoc  = (mode === "ok");
-
-      const seat = showSeat ? safe(exam.seat) : "•••";
-      const loc  = showLoc  ? safe(exam.location) : "••••";
-
-      examHTML = `
-        <div class="sectionHead">
-          <div class="sectionTitle">Next Exam</div>
-          <div class="badge ${badgeClass}">${badgeText}</div>
-        </div>
-        <div class="tableWrap" role="region" aria-label="Next exam table">
-          <table class="examTable">
-            <thead>
-              <tr>
-                <th>Course</th>
-                <th>Code</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Location</th>
-                <th>Seat</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>${safe(exam.courseName)}</td>
-                <td><b>${safe(exam.courseCode)}</b></td>
-                <td>${safe(date)}</td>
-                <td><b>${safe(time)}</b></td>
-                <td>${loc}</td>
-                <td>${seat}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="actionsRow">
-          <button class="btnSecondary" type="button" id="copyBtn">Copy details</button>
-        </div>
-      `;
-    }
-
-    resultEl.innerHTML = `
-      <div class="resultCard">
-        <div class="sectionHead">
-          <div class="sectionTitle">Student Info</div>
-          <div class="badge bNeutral">ID: ${safe(student.id)}</div>
-        </div>
-
-        <div class="kvGrid">
-          <div class="kv"><div class="k">Name</div><div class="v">${safe(student.name)}</div></div>
-          <div class="kv"><div class="k">Semester</div><div class="v">${safe(student.semester)}</div></div>
-          <div class="kv"><div class="k">Academic Year</div><div class="v">${safe(student.academicYear)}</div></div>
-        </div>
-
-        <div class="divider"></div>
-        ${examHTML}
-      </div>
-    `;
+  function showSkeleton(){
     resultEl.hidden = false;
-
-    // Wire copy button (copies what is visible; masked values stay masked)
-    const copyBtn = document.getElementById("copyBtn");
-    if(copyBtn && exam !== null){
-      const lines = [
-        `Name: ${safe(student.name)}`,
-        `ID: ${safe(student.id)}`,
-        student.semester ? `Semester: ${safe(student.semester)}` : null,
-        student.academicYear ? `Academic Year: ${safe(student.academicYear)}` : null,
-        "",
-        "Next Exam:",
-        `Course: ${safe(exam.courseName)} (${safe(exam.courseCode)})`,
-        `Date: ${safe(date)}`,
-        `Time: ${safe(time)}`,
-        `Location: ${loc}`,
-        `Seat: ${seat}`
-      ].filter(Boolean);
-      const text = lines.join("\n");
-      copyBtn.onclick = ()=> copyToClipboard(text);
-    }
-
-    if(msg){
-      setToast(msg, mode === "ok" ? "ok" : (mode === "late" ? "err" : (mode === "none" ? "ok" : "warn")));
-    }
+    resultEl.innerHTML = `
+      <div class="skeletonCard" aria-busy="true">
+        <div class="skeletonLine" style="width:45%"></div>
+        <div class="skeletonLine" style="width:70%"></div>
+        <div class="skeletonLine" style="width:60%"></div>
+        <div class="skeletonLine" style="width:92%"></div>
+        <div class="skeletonLine" style="width:88%"></div>
+        <div class="skeletonLine" style="width:76%"></div>
+      </div>`;
   }
 
   async function fetchJSON(url){
-    // Supports both GitHub Pages (http/https) and local file opening (file://)
-    if(location.protocol === "file:"){
-      await ensureLocalDB();
-      const name = (url||"").split("/").pop();
-      const f = LOCAL_FILES.get(name);
-      if(!f) throw new Error("FILE_NOT_FOUND " + name);
-      const txt = await f.text();
-      return JSON.parse(txt);
-    }
-
-    const r = await fetch(withBust(url), { cache: "no-store" });
+    const r = await fetch(withBust(url), { method:"GET", cache:"no-store", headers:{ "Accept":"application/json" }});
     if(!r.ok) throw new Error("HTTP " + r.status);
     return await r.json();
   }
 
   async function loadConfig(){
-    try{
-      CONFIG = await fetchJSON(`${DB_DIR}/config.json`);
-      return true;
-    }catch(_){
+    try{ CONFIG = await fetchJSON(`${DB_DIR}/config.json`); return true; }
+    catch(_){
+      try{ CONFIG = await fetchJSON(`config.json`); return true; }
+      catch(__){ CONFIG = null; return false; }
+    }
+  }
+
+  async function getServerNow(){
+    const candidates = [`${DB_DIR}/config.json`, location.href];
+    for(const u of candidates){
       try{
-        // Fallback: allow config.json beside index.html
-        CONFIG = await fetchJSON(`config.json`);
-        return true;
-      }catch(__){
-        CONFIG = null;
-        return false;
+        const res = await fetch(withBust(u), { method:"GET", cache:"no-store" });
+        const dh = res.headers.get("date");
+        if(dh){
+          const dt = new Date(dh);
+          if(!isNaN(dt.getTime())) return dt;
+        }
+      }catch(_){}
+    }
+    return new Date();
+  }
+
+  function formatDatePretty(iso){
+    const d = new Date(iso);
+    if(isNaN(d.getTime())) return "—";
+    return d.toLocaleDateString(undefined, { weekday:"short", year:"numeric", month:"short", day:"2-digit" });
+  }
+  function formatTimePretty(iso){
+    const d = new Date(iso);
+    if(isNaN(d.getTime())) return "—";
+    return d.toLocaleTimeString(undefined, { hour:"numeric", minute:"2-digit" });
+  }
+  function msToHMS(ms){
+    const s = Math.max(0, Math.floor(ms/1000));
+    const h = Math.floor(s/3600);
+    const m = Math.floor((s%3600)/60);
+    const sec = s%60;
+    const pad = (n)=>String(n).padStart(2,"0");
+    return h>0 ? `${h}h ${pad(m)}m ${pad(sec)}s` : `${m}m ${pad(sec)}s`;
+  }
+
+  function debouncedCheck(id){
+    if(checkTimer) clearTimeout(checkTimer);
+    checkTimer = setTimeout(() => checkIdExists(id), 250);
+  }
+
+  async function checkIdExists(id){
+    const seq = ++checkSeq;
+
+    if(existsCache.has(id)){
+      const ok = existsCache.get(id);
+      if(ok){
+        setIcon("ok"); openBtn.disabled = false; setToast("Ready. Click Open.", "ok");
+      }else{
+        setIcon("err"); openBtn.disabled = true;
+        setToast(CONFIG?.messages?.notFound || "❌ Student ID not found.", "err");
       }
+      return;
+    }
+
+    setIcon("idle"); openBtn.disabled = true;
+    setToast("Checking ID…", "");
+
+    try{
+      const res = await fetch(withBust(`${DB_DIR}/${id}.json`), { method:"GET", cache:"no-store", headers:{ "Accept":"application/json" }});
+      if(seq !== checkSeq) return;
+
+      if(res.status === 200){
+        existsCache.set(id, true);
+        setIcon("ok"); openBtn.disabled = false;
+        setToast("Ready. Click Open.", "ok");
+      }else if(res.status === 404){
+        existsCache.set(id, false);
+        setIcon("err"); openBtn.disabled = true;
+        setToast(CONFIG?.messages?.notFound || "❌ Student ID not found.", "err");
+      }else{
+        setIcon("bad"); openBtn.disabled = true;
+        setToast(CONFIG?.messages?.dbUnavailable || "❌ Database unavailable. Please try again later.", "err");
+      }
+    }catch(_){
+      if(seq !== checkSeq) return;
+      setIcon("bad"); openBtn.disabled = true;
+      setToast(CONFIG?.messages?.dbUnavailable || "❌ Database unavailable. Please try again later.", "err");
     }
   }
 
+  async function openPaper(){
+    const id = normalizeDigits(idInput.value).trim();
+    if(!id || openBtn.disabled) return;
 
-  function updateUI(){
-    const id = cleanAndGetId();
-
-    if(id === null){
-      setIcon("none");
-      openBtn.disabled = true;
-      setToast("", "");
-      hideResult();
-      return;
-    }
-
-    if(id === "fault"){
-      setIcon("err");
-      openBtn.disabled = true;
-      stopCountdown();
-      __currentId = "";
-      setToast("❌ Invalid ID. Enter 4–12 digits only.", "err");
-      hideResult();
-      return;
-    }
-
-    // Valid format → wait for DB existence check
-    __currentId = id;
     stopCountdown();
-    __idExists = false;
-    openBtn.disabled = true;
-    setIcon("idle");
-    setToast("", "");
-    debouncedCheckId(id);
-}
-
-  
-function formatDateTime(dt){
-  try{
-    return dt.toLocaleString(undefined, { year:"numeric", month:"short", day:"2-digit", hour:"2-digit", minute:"2-digit" });
-  }catch(e){
-    return String(dt);
-  }
-}
-
-
-// =========================
-// Countdown until seat/location release
-// =========================
-let __countdownTimer = null;
-let __currentId = "";
-
-function formatCountdown(ms){
-  ms = Math.max(0, ms);
-  const totalSec = Math.floor(ms / 1000);
-  const sec = totalSec % 60;
-  const totalMin = Math.floor(totalSec / 60);
-  const min = totalMin % 60;
-  const hr = Math.floor(totalMin / 60);
-  const pad = (n)=> String(n).padStart(2,"0");
-  return `${pad(hr)}:${pad(min)}:${pad(sec)}`;
-}
-
-function stopCountdown(){
-  if(__countdownTimer){ clearInterval(__countdownTimer); __countdownTimer = null; }
-}
-
-function startCountdownToRelease(releaseTimeMs){
-  stopCountdown();
-  const tick = ()=>{
-    const nowMs = Date.now();
-    const left = releaseTimeMs - nowMs;
-    if(left <= 0){
-      stopCountdown();
-      // Trigger a re-check so UI can flip to AVAILABLE if allowed
-      if(__currentId) debouncedCheckId(__currentId);
-      return;
-    }
-    const leftStr = formatCountdown(left);
-    const base = (typeof cfg !== "undefined" && cfg && cfg.messages && cfg.messages.tooEarly)
-      ? cfg.messages.tooEarly
-      : "⏳ Seat & location will appear 16 hours before your exam.";
-    setToast(`${base} سيظهر خلال: ${leftStr}`, "err");
-  };
-  tick();
-  __countdownTimer = setInterval(tick, 1000);
-}
-
-
-function showSkeleton(){
-  resultEl.hidden = false;
-  resultEl.innerHTML = `
-    <div class="skeletonCard" aria-busy="true">
-      <div class="skeletonLine" style="width:45%"></div>
-      <div class="skeletonLine" style="width:70%"></div>
-      <div class="skeletonLine" style="width:60%"></div>
-      <div class="skeletonLine" style="width:92%"></div>
-      <div class="skeletonLine" style="width:88%"></div>
-      <div class="skeletonLine" style="width:76%"></div>
-    </div>
-  `;
-}
-
-async function openPaper(){
-    const id = cleanAndGetId();
-
-    if(id === null || id === "fault"){
-      setToast("❌ Please enter a valid Student ID.", "err");
-      sidEl.focus();
-      return;
-    }
-
-
-    // Require ID to exist in DB (green) before allowing Open
-    if(!__idExists){
-      setIcon("err");
-      setToast("❌ Student ID not found.", "err");
-      hideResult();
-      return;
-    }
-
-    
-  // Skeleton while loading student data
-  showSkeleton();
-showOverlay(true);
-    openBtn.disabled = true;
-    setToast("Loading…", "ok");
-
-    await new Promise(r => setTimeout(r, 350));
-
-    if(CONFIG === null) await loadConfig();
-
-    const messages = (CONFIG && CONFIG.messages) ? CONFIG.messages : {};
-    const releaseHrs = (CONFIG && Number.isFinite(CONFIG.releaseWindowHours)) ? CONFIG.releaseWindowHours : 16;
-    const closeAtStart = (CONFIG && typeof CONFIG.closeAtExamStart === "boolean") ? CONFIG.closeAtExamStart : true;
+    showSkeleton();
 
     try{
       const student = await fetchJSON(`${DB_DIR}/${id}.json`);
-      student.id = student.id || id;
+      const exam = student?.nextExam || null;
 
-      if(!("nextExam" in student) || student.nextExam === null){
-        setIcon("ok");
-        renderResult(student, null, "none", messages.noUpcoming || "✅ No upcoming exams.");
+      const name = safe(student?.name);
+      const sem  = safe(student?.semester);
+      const year = safe(student?.academicYear);
+
+      if(!exam){
+        resultEl.hidden = false;
+        resultEl.innerHTML = `
+          <div class="paper">
+            <div class="paperHeader">
+              <div class="paperTitle">Student Info</div>
+              <div class="pill">ID: ${safe(student?.id || id)}</div>
+            </div>
+            <div class="paperBody">
+              <div class="field"><div class="label">Name</div><div class="value rtl">${name || "—"}</div></div>
+              <div class="field"><div class="label">Semester</div><div class="value">${sem || "—"}</div></div>
+              <div class="field"><div class="label">Academic Year</div><div class="value">${year || "—"}</div></div>
+              <div class="divider"></div>
+              <div class="nextExamTitle">Next Exam</div>
+              <div class="okBox">✅ No upcoming exams.</div>
+            </div>
+          </div>`;
+        setToast("", "");
         return;
       }
 
-      const exam = student.nextExam;
-      const start = new Date(exam.examStartISO);
-      const now = await getNowSmart();
-  updateTimeSourceUI();
+      const startISO = safe(exam.examStartISO);
+      const endISO   = safe(exam.examEndISO);
+      const date = formatDatePretty(startISO);
+      const t1 = formatTimePretty(startISO);
+      const t2 = formatTimePretty(endISO);
+      const time = (t1 !== "—" && t2 !== "—") ? `${t1} – ${t2}` : t1;
 
-      if(Number.isNaN(start.getTime())){
-        setIcon("err");
-        setToast("❌ Invalid exam date in database.", "err");
-        hideResult();
-        return;
+      const showHours = Number(CONFIG?.rules?.revealWindowHours ?? DEFAULT_SHOW_WINDOW_HOURS);
+      const now = await getServerNow();
+      const startDt = new Date(startISO);
+      const revealAt = isNaN(startDt.getTime()) ? null : new Date(startDt.getTime() - showHours*3600*1000);
+      const canReveal = !!(revealAt && now >= revealAt);
+
+      const locVal = canReveal ? safe(exam.location) : "••••";
+      const seatVal = canReveal ? safe(exam.seat) : "•••";
+
+      let counterHTML = "";
+      if(revealAt && !canReveal){
+        const diff = revealAt.getTime() - now.getTime();
+        counterHTML = `
+          <div class="countdownBox warn">
+            ⏳ Location & seat will appear in <b id="cdVal">${msToHMS(diff)}</b>
+          </div>`;
+        stopCountdown();
+        countdownTimer = setInterval(async ()=>{
+          const n = await getServerNow();
+          const d = revealAt.getTime() - n.getTime();
+          const el = document.getElementById("cdVal");
+          if(!el) return;
+          if(d <= 0){
+            stopCountdown();
+            openPaper();
+            return;
+          }
+          el.textContent = msToHMS(d);
+        }, 1000);
+      }else if(revealAt && canReveal){
+        counterHTML = `<div class="countdownBox ok">✅ Location & seat are available now.</div>`;
       }
 
-      const releaseTime = new Date(start.getTime() - releaseHrs * 3600 * 1000);
+      const courseCode = safe(exam.courseCode);
+      const courseName = safe(exam.courseName);
 
-      if(now.getTime() < releaseTime.getTime()){
-        setIcon("ok");
-        renderResult(student, exam, "early", messages.tooEarly || "⏳ Seat & location will appear 16 hours before your exam.");
-        return;
+      resultEl.hidden = false;
+      resultEl.innerHTML = `
+        <div class="paper">
+          <div class="paperHeader">
+            <div class="paperTitle">Student Info</div>
+            <div class="pill">ID: ${safe(student?.id || id)}</div>
+          </div>
+          <div class="paperBody">
+            <div class="field"><div class="label">Name</div><div class="value rtl">${name || "—"}</div></div>
+            <div class="field"><div class="label">Semester</div><div class="value">${sem || "—"}</div></div>
+            <div class="field"><div class="label">Academic Year</div><div class="value">${year || "—"}</div></div>
+
+            <div class="divider"></div>
+            <div class="nextExamTitle">Next Exam</div>
+            ${counterHTML}
+
+            <div class="examCard">
+              <div class="examHead">
+                <div class="examCourse">${courseName || "—"}</div>
+                <div class="examCode">${courseCode || ""}</div>
+              </div>
+              <table class="examTable">
+                <tr><th>Date</th><td>${date}</td></tr>
+                <tr><th>Time</th><td><b>${time}</b></td></tr>
+                <tr><th>Location</th><td>${locVal || "—"}</td></tr>
+                <tr><th>Seat</th><td>${seatVal || "—"}</td></tr>
+              </table>
+              <div class="actionsRow">
+                <button class="btnSecondary" type="button" id="copyBtn">Copy details</button>
+              </div>
+            </div>
+          </div>
+        </div>`;
+
+      const copyBtn = document.getElementById("copyBtn");
+      if(copyBtn){
+        copyBtn.onclick = async ()=>{
+          const lines = [
+            `Name: ${name}`,
+            `ID: ${safe(student?.id || id)}`,
+            sem ? `Semester: ${sem}` : null,
+            year ? `Academic Year: ${year}` : null,
+            "",
+            "Next Exam:",
+            `Course: ${courseName} (${courseCode})`,
+            `Date: ${date}`,
+            `Time: ${time}`,
+            `Location: ${locVal}`,
+            `Seat: ${seatVal}`
+          ].filter(Boolean).join("\n");
+
+          try{ await navigator.clipboard.writeText(lines); setToast("Copied.", "ok"); }
+          catch(_){ setToast("Copy failed.", "err"); }
+        };
       }
 
-      if(closeAtStart && now.getTime() >= start.getTime()){
-        setIcon("err");
-        renderResult(student, exam, "late", messages.tooLate || "⛔ Exam started. Access closed.");
-        return;
-      }
-
-      setIcon("ok");
-      renderResult(student, exam, "ok", messages.ok || "✅ Available now.");
-    }catch(err){
-      setIcon("err");
-      hideResult();
-      const is404 = String(err && err.message || "").includes("HTTP 404");
-      const msg = is404 ? (messages.notFound || "❌ Student ID not found.") : "❌ Database unavailable. Please try again later.";
-      setToast(msg, "err");
-    }finally{
-      showOverlay(false);
-      openBtn.disabled = false;
+      setToast("", "");
+    }catch(_){
+      stopCountdown();
+      resultEl.hidden = true;
+      setIcon("bad");
+      openBtn.disabled = true;
+      setToast(CONFIG?.messages?.dbUnavailable || "❌ Database unavailable. Please try again later.", "err");
     }
   }
 
-  sidEl.addEventListener("input", updateUI);
-  sidEl.addEventListener("keydown", (e)=>{ if(e.key === "Enter") openPaper(); });
-  openBtn.addEventListener("click", openPaper);
+  async function init(){
+    await loadConfig();
 
-  loadConfig();
-  updateUI();
+    openBtn.disabled = true;
+    setIcon("idle");
+    setToast("", "");
+
+    idInput.addEventListener("input", ()=>{
+      const id = normalizeDigits(idInput.value).trim();
+      stopCountdown();
+      resultEl.hidden = true;
+
+      if(!id){
+        setIcon("idle");
+        openBtn.disabled = true;
+        setToast("", "");
+        return;
+      }
+
+      if(!/^\d+$/.test(id)){
+        setIcon("err");
+        openBtn.disabled = true;
+        setToast(CONFIG?.messages?.invalid || "❌ Please enter numbers only.", "err");
+        return;
+      }
+
+      debouncedCheck(id);
+    });
+
+    idInput.addEventListener("keydown", (e)=>{
+      if(e.key === "Enter") openPaper();
+    });
+
+    openBtn.addEventListener("click", openPaper);
+  }
+
+  init();
+})();
 </script>
+
 </body>
 </html>
