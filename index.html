@@ -428,7 +428,8 @@
 <p class="overlaySub">Please wait</p>
 </div>
 </div>
-<script>
+<script>console.log("BUILD FINAL15");
+
   const DB_DIR = "Json database";
 
 
@@ -456,19 +457,14 @@ function debouncedCheckId(id){
 }
 
 async function checkIdExists(id){
-  // IMPORTANT: Use GET (not HEAD). Some GitHub Pages/CDNs respond 405/ERR to HEAD.
+  // IMPORTANT: Use GET (not HEAD). Some CDNs/GitHub Pages may not support HEAD properly.
   const url = withBust(`${DB_DIR}/${id}.json`);
   try{
-    const resp = await fetch(url, {
-      method: "GET",
-      cache: "no-store",
-      headers: { "Accept": "application/json" }
-    });
+    const resp = await fetch(url, { method: "GET", cache: "no-store", headers: { "Accept": "application/json" } });
     if(resp.status === 200) return true;
     if(resp.status === 404) return false;
-    // Any other status means the database folder exists but something is wrong
     return "__DB_ERROR__";
-  }catch(e){
+  }catch(_){
     return "__DB_ERROR__";
   }
 }
@@ -810,6 +806,7 @@ function renderResult(student, exam, mode, msg){
       }
     }
   }
+
 
   function updateUI(){
     const id = cleanAndGetId();
