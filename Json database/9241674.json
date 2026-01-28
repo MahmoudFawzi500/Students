@@ -3,5 +3,61 @@
   "name": "محمد صبرى محمد عبد الرحمن عطا العو",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "nextExam": null
+  "exams": [
+    {
+      "courseCode": "BAS00B",
+      "courseName": "Basics of Biology",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "GEN101",
+      "courseName": "English Language II",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "GEN303",
+      "courseName": "History and Contemporary Issues of Arab Media",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "GEN403",
+      "courseName": "Introduction to Economics",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "RAD215",
+      "courseName": "Mathematics",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    }
+  ]
 }

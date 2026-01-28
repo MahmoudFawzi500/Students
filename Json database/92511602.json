@@ -3,12 +3,72 @@
   "name": "شهد محمد صلاح احمد عثمان",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "nextExam": {
-    "courseCode": "GEN001",
-    "courseName": "Introduction to Information and Communication Technology",
-    "examStartISO": "2026-01-28T09:00:00+02:00",
-    "examEndISO": "2026-01-28T10:00:00+02:00",
-    "location": "Computer lab 7 (428) (كلية الذكاء الاصطناعي)",
-    "seat": "20"
-  }
+  "exams": [
+    {
+      "courseCode": "GEN001",
+      "courseName": "Introduction to Information and Communication Technology",
+      "examStartISO": "2025-12-30T15:00:00+02:00",
+      "examEndISO": "2025-12-30T04:00:00+02:00",
+      "location": "Computer lab 7 (428) (كلية الذكاء الاصطناعي)",
+      "seat": "7",
+      "room": "428",
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "AHS111",
+      "courseName": "General Chemistry",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "AHS112",
+      "courseName": "General Biology",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "AHS113",
+      "courseName": "Anatomy for health science Technologists",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "AHS114",
+      "courseName": "Physiology for health science Technologists",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "AHS115",
+      "courseName": "Physics",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    }
+  ]
 }

@@ -3,5 +3,72 @@
   "name": "آلاء اسلام صقر عبد الونيس اسماعيل صقر",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "nextExam": null
+  "exams": [
+    {
+      "courseCode": "GEN002",
+      "courseName": "English Language I",
+      "examStartISO": "2025-12-28T09:00:00+02:00",
+      "examEndISO": "2025-12-28T10:00:00+02:00",
+      "location": "Computer Lab 5 (420) (كلية الذكاء الاصطناعي)",
+      "seat": "39",
+      "room": "420",
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "RAD211",
+      "courseName": "Radiological Imaging and Processing Techniques 1",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "RAD212",
+      "courseName": "Introduction to Radiologic Technology",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "RAD213",
+      "courseName": "Dosimetry Technique",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "RAD214",
+      "courseName": "Instrumentation and Electrical Measurement",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "RAD215",
+      "courseName": "Mathematics",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    }
+  ]
 }

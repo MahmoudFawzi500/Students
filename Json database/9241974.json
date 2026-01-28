@@ -3,12 +3,50 @@
   "name": "أميرة هانى منصور أبو العنين",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "nextExam": {
-    "courseCode": "AHS114",
-    "courseName": "Physiology for health science Technologists",
-    "examStartISO": "2026-01-30T03:39:00+02:00",
-    "examEndISO": "2026-01-30T15:41:00+02:00",
-    "location": "Classroom (207) - Building 8 (كلية تكنولوجيا العلوم الصحية التطبيقية)",
-    "seat": "1274"
-  }
+  "exams": [
+    {
+      "courseCode": "AHS113",
+      "courseName": "Anatomy for health science Technologists",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "AHS114",
+      "courseName": "Physiology for health science Technologists",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "AHS115",
+      "courseName": "Physics",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "BAS00B",
+      "courseName": "Basics of Biology",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    }
+  ]
 }

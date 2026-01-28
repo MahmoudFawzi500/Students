@@ -3,5 +3,50 @@
   "name": "فاطمة الزهراء هشام صبري بحيري",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "nextExam": null
+  "exams": [
+    {
+      "courseCode": "ECC212",
+      "courseName": "Foundation of Critical Care Medicine",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "ECC312",
+      "courseName": "Emergency Practice-1",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "GEN101",
+      "courseName": "English Language II",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "GEN303",
+      "courseName": "History and Contemporary Issues of Arab Media",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    }
+  ]
 }

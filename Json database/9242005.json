@@ -3,12 +3,61 @@
   "name": "ابراهيم ناجي السعيد محمد",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "nextExam": {
-    "courseCode": "GEN001",
-    "courseName": "Introduction to Information and Communication Technology",
-    "examStartISO": "2026-01-28T09:00:00+02:00",
-    "examEndISO": "2026-01-28T10:00:00+02:00",
-    "location": "Computer lab 4 (414) (كلية الذكاء الاصطناعي)",
-    "seat": "21"
-  }
+  "exams": [
+    {
+      "courseCode": "GEN001",
+      "courseName": "Introduction to Information and Communication Technology",
+      "examStartISO": "2025-12-30T09:00:00+02:00",
+      "examEndISO": "2025-12-30T10:00:00+02:00",
+      "location": "Computer lab 4 (414) (كلية الذكاء الاصطناعي)",
+      "seat": "12",
+      "room": "414",
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "BAS00E",
+      "courseName": "Basics of English",
+      "examStartISO": "2025-12-31T13:00:00+02:00",
+      "examEndISO": "2025-12-31T12:00:00+02:00",
+      "location": "Computer Lab1 (101) (كلية الطب البشري)",
+      "seat": "3",
+      "room": "101",
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "AHS114",
+      "courseName": "Physiology for health science Technologists",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "BAS00B",
+      "courseName": "Basics of Biology",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    },
+    {
+      "courseCode": "GEN302",
+      "courseName": "General Risk Management",
+      "examStartISO": null,
+      "examEndISO": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null,
+      "role": "Student"
+    }
+  ]
 }
