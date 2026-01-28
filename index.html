@@ -275,6 +275,25 @@
     h1{font-size:30px}
     input{font-size:24px}
   }
+
+/* --- Logo fix (no theme changes) --- */
+
+.header-logo, .logo, .brand-logo, #logoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header-logo img, .logo img, .brand-logo img, img#logo, #logoWrap img {
+  max-width: 100%;
+  height: 54px;           /* safe header height */
+  object-fit: contain;    /* prevent stretching */
+  object-position: left center;
+}
+@media (max-width: 480px){
+  .header-logo img, .logo img, .brand-logo img, img#logo, #logoWrap img { height: 46px; }
+}
+
 </style>
 </head>
 <body>
