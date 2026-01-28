@@ -3,5 +3,67 @@
   "name": "احمد خالد محمد محمد الحبيشى",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
+  "exams": [
+    {
+      "courseCode": "ECC214",
+      "courseName": "Pathology for Health Science Technologists",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "ECC311",
+      "courseName": "Airway Management & Ventilation",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "ECC411",
+      "courseName": "Intensive Care Practice 2",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "ECC412",
+      "courseName": "Emergency Pharmacology",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "ECC413",
+      "courseName": "Special Considerations in Emergencies& Critical Care",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    }
+  ],
   "nextExam": null
 }

@@ -3,5 +3,55 @@
   "name": "اسراء انور احمد توفيق",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
+  "exams": [
+    {
+      "courseCode": "MLA311",
+      "courseName": "Forensic Chemistry and Analytical Toxicology",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "MLA411",
+      "courseName": "Laboratory Instrumentation and Methodologies (2)",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "MLA413",
+      "courseName": "Immunology and Serology",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "MLA414",
+      "courseName": "Research Methodology",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    }
+  ],
   "nextExam": null
 }

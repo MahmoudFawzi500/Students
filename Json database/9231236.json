@@ -3,5 +3,55 @@
   "name": "سلمى اسامه ابو بكر محمد علي",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
+  "exams": [
+    {
+      "courseCode": "DNT212",
+      "courseName": "Dental Sciences & Dental Terminology",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "DNT311",
+      "courseName": "Fixed Prosthodontics Technology (1)",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "DNT313",
+      "courseName": "Dental Implants Technology",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "DNT314",
+      "courseName": "Dental Impression Materials Practices",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    }
+  ],
   "nextExam": null
 }

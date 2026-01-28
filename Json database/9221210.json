@@ -3,5 +3,55 @@
   "name": "محمود السيد جواده بكر",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
+  "exams": [
+    {
+      "courseCode": "DNT311",
+      "courseName": "Fixed Prosthodontics Technology (1)",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "DNT312",
+      "courseName": "Esthetic Prosthodontics Technology (1)",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "DNT412",
+      "courseName": "Applied Partial Removable Prosthodontics (1)",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "GEN201",
+      "courseName": "Technical Report Writing I",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    }
+  ],
   "nextExam": null
 }

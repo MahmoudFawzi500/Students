@@ -3,5 +3,79 @@
   "name": "سلمى مجدى أبو اليزيد طه السيد الخياط",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
+  "exams": [
+    {
+      "courseCode": "GEN402",
+      "courseName": "Creativity and Critical Thinking",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "RAD311",
+      "courseName": "Vascular Imaging Technique",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "RAD312",
+      "courseName": "Clinical Practice (1)",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "RAD313",
+      "courseName": "Radiological Pathology",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "RAD314",
+      "courseName": "Obstetric and Pelvic Sonography Technique",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "RAD421E",
+      "courseName": "Lab Safety Precautions",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    }
+  ],
   "nextExam": null
 }

@@ -3,12 +3,67 @@
   "name": "محمد خطاب عبد السميع محمد شراب",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "nextExam": {
-    "courseCode": "AHS111",
-    "courseName": "General Chemistry",
-    "examStartISO": "2026-01-28T22:35:00+02:00",
-    "examEndISO": "2026-01-28T21:35:00+02:00",
-    "location": "Classroom (207) - Building 8 (كلية تكنولوجيا العلوم الصحية التطبيقية)",
-    "seat": "299"
-  }
+  "exams": [
+    {
+      "courseCode": "AHS111",
+      "courseName": "General Chemistry",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "GEN001",
+      "courseName": "Introduction to Information and Communication Technology",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "GEN002",
+      "courseName": "English Language I",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "GEN302",
+      "courseName": "General Risk Management",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "GEN403",
+      "courseName": "Introduction to Economics",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    }
+  ],
+  "nextExam": null
 }

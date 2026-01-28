@@ -3,12 +3,78 @@
   "name": "سيف الدين ياسر محمد محمد",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
+  "exams": [
+    {
+      "courseCode": "AHS114",
+      "courseName": "Physiology for health science Technologists",
+      "examStartISO": "2026-01-29T21:26:00+02:00",
+      "examEndISO": "2026-01-29T21:26:00+02:00",
+      "detailsAvailable": false,
+      "countdownHours": 23.8,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "AHS112",
+      "courseName": "General Biology",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "GEN101",
+      "courseName": "English Language II",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "GEN302",
+      "courseName": "General Risk Management",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "GEN403",
+      "courseName": "Introduction to Economics",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    }
+  ],
   "nextExam": {
     "courseCode": "AHS114",
     "courseName": "Physiology for health science Technologists",
-    "examStartISO": "2026-01-30T03:39:00+02:00",
-    "examEndISO": "2026-01-30T15:41:00+02:00",
-    "location": "Classroom (207) - Building 8 (كلية تكنولوجيا العلوم الصحية التطبيقية)",
-    "seat": "454"
+    "examStartISO": "2026-01-29T21:26:00+02:00",
+    "examEndISO": "2026-01-29T21:26:00+02:00",
+    "location": null,
+    "seat": null,
+    "room": null,
+    "building": null,
+    "detailsAvailable": false,
+    "countdownHours": 23.8
   }
 }

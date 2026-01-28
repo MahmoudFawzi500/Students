@@ -3,12 +3,90 @@
   "name": "محمد حاتم عبد المعطي عبدالمعطي بدر",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
+  "exams": [
+    {
+      "courseCode": "AHS114",
+      "courseName": "Physiology for health science Technologists",
+      "examStartISO": "2026-01-29T21:26:00+02:00",
+      "examEndISO": "2026-01-29T21:26:00+02:00",
+      "detailsAvailable": false,
+      "countdownHours": 23.79,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "AHS111",
+      "courseName": "General Chemistry",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "AHS112",
+      "courseName": "General Biology",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "AHS113",
+      "courseName": "Anatomy for health science Technologists",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "AHS115",
+      "courseName": "Physics",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    },
+    {
+      "courseCode": "GEN001",
+      "courseName": "Introduction to Information and Communication Technology",
+      "examStartISO": null,
+      "examEndISO": null,
+      "detailsAvailable": false,
+      "countdownHours": null,
+      "location": null,
+      "seat": null,
+      "room": null,
+      "building": null
+    }
+  ],
   "nextExam": {
-    "courseCode": "AHS111",
-    "courseName": "General Chemistry",
-    "examStartISO": "2026-01-28T22:35:00+02:00",
-    "examEndISO": "2026-01-28T21:35:00+02:00",
-    "location": "Classroom (207) - Building 8 (كلية تكنولوجيا العلوم الصحية التطبيقية)",
-    "seat": "75"
+    "courseCode": "AHS114",
+    "courseName": "Physiology for health science Technologists",
+    "examStartISO": "2026-01-29T21:26:00+02:00",
+    "examEndISO": "2026-01-29T21:26:00+02:00",
+    "location": null,
+    "seat": null,
+    "room": null,
+    "building": null,
+    "detailsAvailable": false,
+    "countdownHours": 23.79
   }
 }
