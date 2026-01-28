@@ -3,50 +3,5 @@
   "name": "عمرو عاطف السيد محمد يوسف الزيني",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "exams": [
-    {
-      "courseCode": "RAD411",
-      "courseName": "Radiotherapy Technique",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "RAD412",
-      "courseName": "Radiology &Radiation Protection",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "RAD413",
-      "courseName": "CT Examination Technique",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "RAD414",
-      "courseName": "Clinical Practice (2)",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    }
-  ]
+  "nextExam": null
 }

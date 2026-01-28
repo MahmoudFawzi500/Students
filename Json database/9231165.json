@@ -3,50 +3,5 @@
   "name": "ندى محمد محمد محمود الجبالي",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "exams": [
-    {
-      "courseCode": "GEN001",
-      "courseName": "Introduction to Information and Communication Technology",
-      "examStartISO": "2025-12-30T09:00:00+02:00",
-      "examEndISO": "2025-12-30T10:00:00+02:00",
-      "location": "Computer Lab 1 (410) (كلية الذكاء الاصطناعي)",
-      "seat": "17",
-      "room": "410",
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "RAD213",
-      "courseName": "Dosimetry Technique",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "RAD311",
-      "courseName": "Vascular Imaging Technique",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "RAD421E",
-      "courseName": "Lab Safety Precautions",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    }
-  ]
+  "nextExam": null
 }

@@ -3,50 +3,12 @@
   "name": "منه اشرف محمود محمد",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "exams": [
-    {
-      "courseCode": "AHS114",
-      "courseName": "Physiology for health science Technologists",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "AHS122",
-      "courseName": "Biochemistry",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "DNT212",
-      "courseName": "Dental Sciences & Dental Terminology",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "DNT214",
-      "courseName": "Fundamentals Of Technology of Dental Prostheses Manufacture",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    }
-  ]
+  "nextExam": {
+    "courseCode": "AHS114",
+    "courseName": "Physiology for health science Technologists",
+    "examStartISO": "2026-01-30T03:39:00+02:00",
+    "examEndISO": "2026-01-30T15:41:00+02:00",
+    "location": "Classroom (207) - Building 8 (كلية تكنولوجيا العلوم الصحية التطبيقية)",
+    "seat": "513"
+  }
 }

@@ -3,50 +3,5 @@
   "name": "روان صبحى محمد فهيم بسطاويسى",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "exams": [
-    {
-      "courseCode": "RAD211",
-      "courseName": "Radiological Imaging and Processing Techniques 1",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "RAD212",
-      "courseName": "Introduction to Radiologic Technology",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "RAD213",
-      "courseName": "Dosimetry Technique",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "RAD215",
-      "courseName": "Mathematics",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    }
-  ]
+  "nextExam": null
 }

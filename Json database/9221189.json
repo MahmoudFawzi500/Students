@@ -3,50 +3,5 @@
   "name": "أروي خالد عبدالمحسن محمد طه",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "exams": [
-    {
-      "courseCode": "MLA411",
-      "courseName": "Laboratory Instrumentation and Methodologies (2)",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "MLA412",
-      "courseName": "Quality Management in Medical Laboratories",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "MLA413",
-      "courseName": "Immunology and Serology",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "MLA414",
-      "courseName": "Research Methodology",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    }
-  ]
+  "nextExam": null
 }

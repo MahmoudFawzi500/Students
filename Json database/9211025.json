@@ -3,50 +3,5 @@
   "name": "نرمين بلال جمال عبد الغفار احمد",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "exams": [
-    {
-      "courseCode": "MLA423",
-      "courseName": "Blood Banking",
-      "examStartISO": "2025-12-28T11:00:00+02:00",
-      "examEndISO": "2025-12-28T13:00:00+02:00",
-      "location": "Classroom (206) - Building 8 (كلية تكنولوجيا العلوم الصحية التطبيقية)",
-      "seat": "1",
-      "room": "206",
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "MLA311",
-      "courseName": "Forensic Chemistry and Analytical Toxicology",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "MLA411",
-      "courseName": "Laboratory Instrumentation and Methodologies (2)",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "MLA412",
-      "courseName": "Quality Management in Medical Laboratories",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    }
-  ]
+  "nextExam": null
 }

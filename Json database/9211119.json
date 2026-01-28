@@ -3,50 +3,5 @@
   "name": "رنيم احمد السيد مصطفى سلام",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "exams": [
-    {
-      "courseCode": "DNT423",
-      "courseName": "Applied Fixed Prosthodontics (2)",
-      "examStartISO": "2025-12-27T11:00:00+02:00",
-      "examEndISO": "2025-12-27T01:00:00+02:00",
-      "location": "Classroom (206) - Building 8 (كلية تكنولوجيا العلوم الصحية التطبيقية)",
-      "seat": "6",
-      "room": "206",
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "DNT413E",
-      "courseName": "Dental Public Health preventive dentistry",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "DNT421",
-      "courseName": "CAD/CAM: Manufacturing",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "DNT424",
-      "courseName": "Graduation Project",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    }
-  ]
+  "nextExam": null
 }

@@ -3,72 +3,12 @@
   "name": "اسلام صفوت محمد على ابراهيم",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "exams": [
-    {
-      "courseCode": "GEN001",
-      "courseName": "Introduction to Information and Communication Technology",
-      "examStartISO": "2025-12-30T09:00:00+02:00",
-      "examEndISO": "2025-12-30T10:00:00+02:00",
-      "location": "Computer lab 4 (414) (كلية الذكاء الاصطناعي)",
-      "seat": "18",
-      "room": "414",
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "AHS114",
-      "courseName": "Physiology for health science Technologists",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "DNT211",
-      "courseName": "Head & Neck Anatomy",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "DNT213",
-      "courseName": "Dental Materials",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "DNT214",
-      "courseName": "Fundamentals Of Technology of Dental Prostheses Manufacture",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "DNT215",
-      "courseName": "Dental Morphology & Occlusion Technology",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    }
-  ]
+  "nextExam": {
+    "courseCode": "AHS114",
+    "courseName": "Physiology for health science Technologists",
+    "examStartISO": "2026-01-30T03:39:00+02:00",
+    "examEndISO": "2026-01-30T15:41:00+02:00",
+    "location": "Classroom (207) - Building 8 (كلية تكنولوجيا العلوم الصحية التطبيقية)",
+    "seat": "148"
+  }
 }

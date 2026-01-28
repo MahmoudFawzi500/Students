@@ -3,50 +3,12 @@
   "name": "خالد محمد الداوودي محمود مرزوق",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "exams": [
-    {
-      "courseCode": "ECC213",
-      "courseName": "Emergency in Medicine 1",
-      "examStartISO": "2025-12-31T09:00:00+02:00",
-      "examEndISO": "2025-12-31T11:00:00+02:00",
-      "location": "HALL 3 Building 8 (209) (كلية تكنولوجيا العلوم الصحية التطبيقية)",
-      "seat": "46",
-      "room": "209",
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "AHS113",
-      "courseName": "Anatomy for health science Technologists",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "ECC212",
-      "courseName": "Foundation of Critical Care Medicine",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "ECC214",
-      "courseName": "Pathology for Health Science Technologists",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    }
-  ]
+  "nextExam": {
+    "courseCode": "AHS113",
+    "courseName": "Anatomy for health science Technologists",
+    "examStartISO": "2026-02-05T15:40:00+02:00",
+    "examEndISO": "2026-02-05T04:38:00+02:00",
+    "location": "Classroom (305) - Building 8 (كلية تكنولوجيا العلوم الصحية التطبيقية)",
+    "seat": "219"
+  }
 }

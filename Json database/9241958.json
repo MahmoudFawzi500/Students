@@ -3,50 +3,12 @@
   "name": "مريم سامح عبدالحليم عبدالحليم العبيسى",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "exams": [
-    {
-      "courseCode": "AHS111",
-      "courseName": "General Chemistry",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "AHS112",
-      "courseName": "General Biology",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "AHS114",
-      "courseName": "Physiology for health science Technologists",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "AHS115",
-      "courseName": "Physics",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    }
-  ]
+  "nextExam": {
+    "courseCode": "AHS111",
+    "courseName": "General Chemistry",
+    "examStartISO": "2026-01-28T22:35:00+02:00",
+    "examEndISO": "2026-01-28T21:35:00+02:00",
+    "location": "Classroom (207) - Building 8 (كلية تكنولوجيا العلوم الصحية التطبيقية)",
+    "seat": "39"
+  }
 }

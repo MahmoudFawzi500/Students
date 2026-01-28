@@ -3,17 +3,5 @@
   "name": "محمد وليد رياض الموافى",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "exams": [
-    {
-      "courseCode": "DNT312",
-      "courseName": "Esthetic Prosthodontics Technology (1)",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    }
-  ]
+  "nextExam": null
 }

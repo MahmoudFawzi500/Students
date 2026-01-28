@@ -3,61 +3,12 @@
   "name": "احمد جلال خليل جمعه",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "exams": [
-    {
-      "courseCode": "GEN002",
-      "courseName": "English Language I",
-      "examStartISO": "2025-12-28T09:00:00+02:00",
-      "examEndISO": "2025-12-28T10:00:00+02:00",
-      "location": "Computer lab 7 (428) (كلية الذكاء الاصطناعي)",
-      "seat": "22",
-      "room": "428",
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "GEN001",
-      "courseName": "Introduction to Information and Communication Technology",
-      "examStartISO": "2025-12-30T09:00:00+02:00",
-      "examEndISO": "2025-12-30T10:00:00+02:00",
-      "location": "Computer Lab 3 (412) (كلية الذكاء الاصطناعي)",
-      "seat": "11",
-      "room": "412",
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "AHS114",
-      "courseName": "Physiology for health science Technologists",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "AHS122",
-      "courseName": "Biochemistry",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "GEN302",
-      "courseName": "General Risk Management",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    }
-  ]
+  "nextExam": {
+    "courseCode": "AHS114",
+    "courseName": "Physiology for health science Technologists",
+    "examStartISO": "2026-01-30T03:39:00+02:00",
+    "examEndISO": "2026-01-30T15:41:00+02:00",
+    "location": "Classroom (207) - Building 8 (كلية تكنولوجيا العلوم الصحية التطبيقية)",
+    "seat": "836"
+  }
 }

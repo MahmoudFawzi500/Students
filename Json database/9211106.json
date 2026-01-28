@@ -3,17 +3,5 @@
   "name": "ضحى محمد صبرى محمد عبد الحميد",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "exams": [
-    {
-      "courseCode": "DNT424",
-      "courseName": "Graduation Project",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    }
-  ]
+  "nextExam": null
 }

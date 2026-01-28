@@ -3,72 +3,12 @@
   "name": "ليلا حمدي ابراهيم عبد الغني بدير",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "exams": [
-    {
-      "courseCode": "GEN001",
-      "courseName": "Introduction to Information and Communication Technology",
-      "examStartISO": "2025-12-30T14:00:00+02:00",
-      "examEndISO": "2025-12-30T15:00:00+02:00",
-      "location": "Computer Lab 5 (420) (كلية الذكاء الاصطناعي)",
-      "seat": "35",
-      "room": "420",
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "AHS111",
-      "courseName": "General Chemistry",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "AHS112",
-      "courseName": "General Biology",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "AHS113",
-      "courseName": "Anatomy for health science Technologists",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "AHS114",
-      "courseName": "Physiology for health science Technologists",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "AHS115",
-      "courseName": "Physics",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    }
-  ]
+  "nextExam": {
+    "courseCode": "AHS111",
+    "courseName": "General Chemistry",
+    "examStartISO": "2026-01-28T22:35:00+02:00",
+    "examEndISO": "2026-01-28T21:35:00+02:00",
+    "location": "HALL 5 Building 8 (308) (كلية تكنولوجيا العلوم الصحية التطبيقية)",
+    "seat": "285"
+  }
 }

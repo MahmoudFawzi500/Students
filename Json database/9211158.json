@@ -3,50 +3,5 @@
   "name": "يوسف احمد قطب حارس قطب البحيرى",
   "semester": "Final - Fall",
   "academicYear": "2025/2026",
-  "exams": [
-    {
-      "courseCode": "GEN201",
-      "courseName": "Technical Report Writing I",
-      "examStartISO": "2025-12-31T15:00:00+02:00",
-      "examEndISO": "2025-12-31T16:00:00+02:00",
-      "location": "معمل حاسب 1 (كلية هندسة الطاقة)",
-      "seat": "23",
-      "room": "كلية هندسة الطاقة",
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "DNT312",
-      "courseName": "Esthetic Prosthodontics Technology (1)",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "DNT414",
-      "courseName": "Applied Fixed Prosthodontics (1)",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    },
-    {
-      "courseCode": "GEN302",
-      "courseName": "General Risk Management",
-      "examStartISO": null,
-      "examEndISO": null,
-      "location": null,
-      "seat": null,
-      "room": null,
-      "building": null,
-      "role": "Student"
-    }
-  ]
+  "nextExam": null
 }
